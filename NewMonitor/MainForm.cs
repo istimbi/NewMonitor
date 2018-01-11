@@ -28,13 +28,13 @@ namespace NewMonitor
             {
                 textBox1.Text = Convert.ToString(Properties.Settings.Default.bottom_line);
                 textBox2.Text = Convert.ToString(Properties.Settings.Default.top_line);
-                textBox3.Text = "170";
+                textBox3.Text = "160";
             }
             catch (Exception)
             {
                 textBox1.Text = Convert.ToString(bottomline);
                 textBox2.Text = Convert.ToString(topline);
-                textBox3.Text = "170";
+                textBox3.Text = "160";
             }
            
 
