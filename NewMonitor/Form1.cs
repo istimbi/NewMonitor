@@ -78,13 +78,12 @@ namespace NewMonitor
                 }
                 catch (Exception e)
                 {
-
                     using (StreamWriter sw = new StreamWriter(new FileStream("error.txt", FileMode.OpenOrCreate, FileAccess.Write)))
                     {
                         sw.WriteLine(DateTime.Now + ": ToDo executing -  " + e.Message);
-                     }
+                    }
                 }
-               
+
             }
             if (frm.DialogResult == DialogResult.Cancel) Process.GetCurrentProcess().Kill();        //Если нажата кнопка выхода из формы2, то вырубаем всё         
            
@@ -93,12 +92,8 @@ namespace NewMonitor
         public void button_press()
         {
             this.Show();
-            System.IO.StreamReader file = new System.IO.StreamReader("settings.txt");
-            bottomline = Convert.ToDouble(file.ReadLine());
-            topline = Convert.ToDouble(file.ReadLine());
-            file.Close();
-            //Device.Read();
-            //values = Device.values;
+            bottomline = Properties.Settings.Default.bottom_line;
+            topline = Properties.Settings.Default.top_line;
             
             if (Device.chek)
             {

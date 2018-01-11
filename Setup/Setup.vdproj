@@ -92,7 +92,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NET Framework 4.6.1"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.5.2"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
@@ -188,7 +188,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Heart Monitor"
         "ProductCode" = "8:{42C8A07B-F153-4AB3-98AA-533A58EAD931}"
-        "PackageCode" = "8:{A0465161-91C8-46C5-8578-8559D59C7645}"
+        "PackageCode" = "8:{088BFB68-FBDC-4C64-8A93-B78EA1181322}"
         "UpgradeCode" = "8:{8B040D55-0314-43CD-8788-7B479BD6FFFD}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
