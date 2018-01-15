@@ -94,37 +94,41 @@ namespace NewMonitor
             this.Show();
             bottomline = Properties.Settings.Default.bottom_line;
             topline = Properties.Settings.Default.top_line;
-            
-            if (Device.chek)
+            chart1.Series[1].ToolTip = "X = #VALX, Y = #VALY";
+            chart1.Series[0].ToolTip = "X = #VALX, Y = #VALY";
+            chart2.Series[0].ToolTip = "X = #VALX, Y = #VALY";
+
+            try
             {
-                try
-                {
 
-                    tabControl1.SelectTab(1);
-                    Device.Port.Write("3");
-                    backgroundWorker1.RunWorkerAsyn​c();
-                }
-                catch (Exception e)
-                {
-                    using (StreamWriter sw = new StreamWriter(new FileStream("errorDavlenie.txt", FileMode.OpenOrCreate, FileAccess.Write)))
-                    {
-                        sw.WriteLine(DateTime.Now + ": ToDo executing -  " + e.Message);
-                    }
-                }
-
-
-                //tabControl1.SelectTab(3);
-                //end = DateTime.Now.AddMinutes(Device.time);
-                //Device.Port.Write("3");
-                //backgroundWorker4.RunWorkerAsyn​c();
+                tabControl1.SelectTab(1);
+                Device.Port.Write("3");
+                backgroundWorker1.RunWorkerAsyn​c();
             }
-            else
+            catch (Exception e)
             {
-                tabControl1.SelectTab(2);
-                end = DateTime.Now.AddMinutes(0);
-                label4.Text = TimeLeft().Minutes.ToString() + ":" + TimeLeft().Seconds.ToString();
-                timer2.Enabled = true;
-            }          
+
+            }
+
+
+            //if (Device.chek)
+            //{
+              
+
+
+            //    //tabControl1.SelectTab(3);
+            //    //end = DateTime.Now.AddMinutes(Device.time);
+            //    //Device.Port.Write("3");
+            //    //backgroundWorker4.RunWorkerAsyn​c();
+            //}
+            //else
+            //{
+            //    tabControl1.SelectTab(2);
+            //    end = DateTime.Now.AddMinutes(0);
+            //    label4.Text = TimeLeft().Minutes.ToString() + ":" + TimeLeft().Seconds.ToString();
+            //    timer2.Enabled = true;
+            //}         
+            
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) //На давление 1
@@ -237,7 +241,7 @@ namespace NewMonitor
                                 {
                                     this.Invoke((MethodInvoker)delegate
                                     {
-                                        chart2.ChartAreas[0].AxisY.Maximum = collection.Max() + 20;
+                                        chart2.ChartAreas[0].AxisY.Maximum = collection.Max() + 40;
                                     });
                                 }
 
@@ -245,7 +249,7 @@ namespace NewMonitor
                                 {
                                     this.Invoke((MethodInvoker)delegate
                                     {
-                                        chart2.ChartAreas[0].AxisY.Minimum = collection.Min() - 20;
+                                        chart2.ChartAreas[0].AxisY.Minimum = collection.Min() - 40;
                                     });
                                 }
 
@@ -293,36 +297,38 @@ namespace NewMonitor
                     //    chart2.ChartAreas[0].AxisY.Maximum = collection.Max() + 20;
                     //    chart2.ChartAreas[0].AxisY.Minimum = collection.Min() - 20;
                     //});
+
+
                     this.Invoke((MethodInvoker)delegate
                     {
                         int max = collection.Max();
                         int maxvalue = Array.IndexOf(collection, max);
-                        if (maxvalue < collection.Length/2 && maxvalue > 5 )
-                        {
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 1);
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 3);
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 5);
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 7);
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 9);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 1);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 3);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 5);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 7);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 9);
-                        }
-                        else
-                        {
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 1);
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 3);
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 5);
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 7);
-                            chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 9);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 1);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 3);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 5);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 7);
-                            chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 9);
-                        }
+                        //if (maxvalue < collection.Length/2 && maxvalue > 5 )
+                        //{
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 1);
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 3);
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 5);
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 7);
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 9);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 1);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 3);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 5);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 7);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue + 10)/100, max + 9);
+                        //}
+                        //else
+                        //{
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 1);
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 3);
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 5);
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 7);
+                        //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue - 10)/100, max + 9);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 1);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 3);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 5);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 7);
+                        //    chart2.Series[2].Points.AddXY(Convert.ToDouble(maxvalue - 1)/100, max + 9);
+                        //}
                         
                     });
                     button2.BackColor = Color.LightGreen;
@@ -371,15 +377,15 @@ namespace NewMonitor
                             {
                                 if (timerCounter > 178)
                                 {
-                                    chart3.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position = Convert.ToDouble(timerCounter + 1) / 100 - 1.49;
+                                    chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position = Convert.ToDouble(timerCounter + 1) / 100 - 1.49;
 
                                 }
                             });
 
                             this.Invoke((MethodInvoker)delegate
                             {
-                                chart3.Series[0].Points.AddXY(Convert.ToDouble(timerCounter + 1) * 0.02, Convert.ToInt32(values[0]));
-                                chart3.Series[1].Points.AddXY(Convert.ToDouble(timerCounter + 1) * 0.02, Convert.ToInt32(values[3]));
+                                chart2.Series[0].Points.AddXY(Convert.ToDouble(timerCounter + 1) * 0.02, Convert.ToInt32(values[0]));
+                                chart2.Series[1].Points.AddXY(Convert.ToDouble(timerCounter + 1) * 0.02, Convert.ToInt32(values[3]));
                                 //Thread.Sleep(100);
                             });
                             collection_string[timerCounter] = (collection[timerCounter] = Convert.ToInt32(values[3])).ToString();
@@ -457,7 +463,7 @@ namespace NewMonitor
 
         private void button1_Click(object sender, EventArgs e) // Кнопка Анализировать на вкладке Давления
         {
-
+            
             int maxval = collection.Max();
 
             maxindex = Array.IndexOf(collection, maxval);
@@ -468,10 +474,11 @@ namespace NewMonitor
             int seventeens = Convert.ToInt32((collection.Max() - 2000) * bottomline + 2000);
             fifteens = Convert.ToInt32((collection.Max() - 2000) * topline + 2000);
             //Array.Resize(ref stepx, collection.Length);
-            step = Math.Round( (double) (difference-600)/10 / collection.Length, 1);
+            step = Math.Round( (double) (difference-700)/10 / collection.Length, 1);
 
             for (int i = collection.Length - 2; i > maxindex; i--)
             {
+                stopdraw = maxindex;
                 if (collection[i] > fifteens)
                 {
                     stopdraw = i;
@@ -496,6 +503,7 @@ namespace NewMonitor
             for (int i = startdraw - 10; i < stopdraw + 10; i++)
             {
                 chart1.Series[1].Points.AddXY(i*step+40, collection[i]);
+                
             }
             for (int i = 0; i < collection.Length-1; i++)
             {
@@ -504,18 +512,34 @@ namespace NewMonitor
             chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
             chart1.ChartAreas[0].AxisX.Maximum = Math.Round(chart1.Series[0].Points[collection.Length - 2].XValue);
 
-
-
+            label17.Text = chart1.Series[1].Points[0].XValue.ToString();
+            label16.Text = chart1.Series[1].Points[chart1.Series[1].Points.Count-1].XValue.ToString();
            
-
-          
-            
-
             tabControl1.SelectTab(2);
             end = DateTime.Now.AddMinutes(1);
             label4.Text = TimeLeft().Minutes.ToString() + ":" + TimeLeft().Seconds.ToString();
             timer2.Start();            
         }
+
+        public void chart1_MouseDown(object sender, MouseEventArgs e)
+        {
+            //HitTestResult seriesHit = chart1.HitTest(e.X, e.Y);
+            //if (seriesHit.Series != null && seriesHit.Series.Name == "Ритм")
+            //{
+            //    var prop = seriesHit.Object as DataPoint;
+                
+            //    if (chart1.Series[0].Points[seriesHit.PointIndex].XValue < chart1.Series[1].Points[0].XValue)
+            //    {
+            //        for (int i = seriesHit.PointIndex; i < chart1.Series[1].Points[0].XValue; i++)
+            //        {
+
+            //        }
+            //    }
+            //}
+        }
+
+
+
 
         private TimeSpan TimeLeft()
         {
@@ -693,7 +717,7 @@ namespace NewMonitor
         public void myChart_MouseDown(object sender, MouseEventArgs e)
         {
             
-            movefirst = false;
+           // movefirst = false;
             HitTestResult seriesHit = chart2.HitTest(e.X, e.Y);            
             if (seriesHit.Series != null && seriesHit.Series.Name == "Точки А1")
             {
@@ -710,14 +734,44 @@ namespace NewMonitor
 
         }
 
-        public void chart3_AxisViewChanged(object sender, ViewEventArgs e)
+        public void chart2_AxisViewChanged(object sender, ViewEventArgs e)
         {
-            //chart3.ChartAreas[0].AxisX.RoundAxisValue(1);
-            chart3.ChartAreas[0].CursorX.IsUserSelectionEnabled = false;
-            chart3.ChartAreas[0].CursorY.IsUserSelectionEnabled = false;
-            chart3.ChartAreas[0].AxisX.LabelStyle.Format = "0.###";        
+            //chart2.ChartAreas[0].AxisX.RoundAxisValue(1);
+            chart2.ChartAreas[0].CursorX.IsUserSelectionEnabled = false;
+            chart2.ChartAreas[0].CursorY.IsUserSelectionEnabled = false;
+            chart2.ChartAreas[0].AxisX.LabelStyle.Format = "0.###";        
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+        public void myChart_MouseRightClick(object sender, MouseEventArgs e)
+        {
+            HitTestResult seriesHit = chart2.HitTest(e.X, e.Y);
+            var prop = seriesHit.Object as DataPoint;
+            if (e.Button == MouseButtons.Right && seriesHit.Series != null && seriesHit.Series.Name == "Ритм")
+            {
+                if (chart2.Series[1].Points.Count<5)
+                {
+                    chart2.Series[1].Points.AddXY(prop.XValue, prop.YValues[0]);
+                }
+                else if (chart2.Series[2].Points.Count < 5)
+                {
+                    chart2.Series[2].Points.AddXY(prop.XValue, prop.YValues[0]);
+                }
+                
+            }
+          
+        }
 
         public void myChart_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -732,18 +786,18 @@ namespace NewMonitor
                 chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position = Math.Round(chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position - 0.1, 1);
             }
         }
-
-        public void myChart3_MouseWheel(object sender, MouseEventArgs e)
+        
+        public void mychart2_MouseWheel(object sender, MouseEventArgs e)
         {
 
-            if (e.Delta > 0 && chart3.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position < 11)
+            if (e.Delta > 0 && chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position < 11)
             {
-                chart3.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position = chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position + 0.1;
+                chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position = chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position + 0.1;
             }
 
-            if (e.Delta < 0 && chart3.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position > 0.01)
+            if (e.Delta < 0 && chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position > 0.01)
             {
-                chart3.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position = chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position - 0.1;
+                chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position = chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position - 0.1;
             }
         }
 
@@ -769,13 +823,7 @@ namespace NewMonitor
         }
 
 
-        private void chart2_AxisViewChanged(object sender, ViewEventArgs e)
-        {
-            chart2.ChartAreas[0].CursorX.IsUserSelectionEnabled = false;
-            chart2.ChartAreas[0].CursorY.IsUserSelectionEnabled = false;
-            chart2.ChartAreas[0].AxisX.LabelStyle.Format = "0.###";
-        }
-
+     
         public void myChart_MouseMove(object sender, MouseEventArgs e)
         {
             movesecond = true;
@@ -871,6 +919,21 @@ namespace NewMonitor
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }

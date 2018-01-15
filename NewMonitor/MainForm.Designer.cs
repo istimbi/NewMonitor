@@ -41,7 +41,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkBox = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numeric = new System.Windows.Forms.NumericUpDown();
@@ -162,20 +161,10 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "Нижняя граница";
             // 
-            // checkBox
-            // 
-            this.checkBox.AutoSize = true;
-            this.checkBox.Location = new System.Drawing.Point(6, 12);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(170, 17);
-            this.checkBox.TabIndex = 22;
-            this.checkBox.Text = "Плетизмограмма+давление";
-            this.checkBox.UseVisualStyleBackColor = true;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 38);
+            this.label7.Location = new System.Drawing.Point(6, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 13);
             this.label7.TabIndex = 23;
@@ -184,7 +173,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.numeric);
-            this.groupBox1.Controls.Add(this.checkBox);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 173);
             this.groupBox1.Name = "groupBox1";
@@ -194,7 +182,7 @@
             // 
             // numeric
             // 
-            this.numeric.Location = new System.Drawing.Point(145, 35);
+            this.numeric.Location = new System.Drawing.Point(153, 26);
             this.numeric.Name = "numeric";
             this.numeric.Size = new System.Drawing.Size(30, 20);
             this.numeric.TabIndex = 24;
@@ -282,7 +270,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
