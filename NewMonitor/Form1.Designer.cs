@@ -33,24 +33,17 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -78,8 +71,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -109,68 +100,6 @@
             // 
             this.backgroundWorker4.WorkerSupportsCancellation = true;
             this.backgroundWorker4.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker4_DoWork);
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.button5);
-            this.tabPage4.Controls.Add(this.chart3);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1391, 432);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Плетизмограмма + давление";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.PaleGreen;
-            this.button5.Location = new System.Drawing.Point(1100, 393);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 36);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Расчитать";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // chart3
-            // 
-            this.chart3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AxisX.Interval = 0.1D;
-            chartArea1.AxisX.ScaleView.Size = 2D;
-            chartArea1.AxisX.ScrollBar.IsPositionedInside = false;
-            chartArea1.AxisY.ScaleView.SmallScrollMinSize = 10D;
-            chartArea1.CursorX.Interval = 0.01D;
-            chartArea1.CursorY.Interval = 0.1D;
-            chartArea1.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart3.Legends.Add(legend1);
-            this.chart3.Location = new System.Drawing.Point(0, 0);
-            this.chart3.Name = "chart3";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series1.Legend = "Legend1";
-            series1.MarkerBorderWidth = 3;
-            series1.Name = "Давление";
-            series2.BorderColor = System.Drawing.Color.Red;
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.MarkerBorderWidth = 3;
-            series2.Name = "Плетизмограмма";
-            this.chart3.Series.Add(series1);
-            this.chart3.Series.Add(series2);
-            this.chart3.Size = new System.Drawing.Size(1578, 394);
-            this.chart3.TabIndex = 5;
-            this.chart3.Text = "chart3";
-            this.chart3.AxisViewChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ViewEventArgs>(this.chart3_AxisViewChanged);
-            this.chart3.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.myChart3_MouseWheel);
             // 
             // tabPage2
             // 
@@ -207,6 +136,7 @@
             this.label12.Size = new System.Drawing.Size(13, 13);
             this.label12.TabIndex = 24;
             this.label12.Text = "0";
+            this.label12.Visible = false;
             // 
             // label14
             // 
@@ -216,6 +146,7 @@
             this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 23;
             this.label14.Text = "ИЖ3минСР = ";
+            this.label14.Visible = false;
             // 
             // label7
             // 
@@ -257,6 +188,7 @@
             this.label15.Size = new System.Drawing.Size(13, 13);
             this.label15.TabIndex = 19;
             this.label15.Text = "0";
+            this.label15.Visible = false;
             // 
             // label13
             // 
@@ -266,6 +198,7 @@
             this.label13.Size = new System.Drawing.Size(13, 13);
             this.label13.TabIndex = 17;
             this.label13.Text = "0";
+            this.label13.Visible = false;
             // 
             // label11
             // 
@@ -284,6 +217,7 @@
             this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 14;
             this.label10.Text = "ПФЭ = ";
+            this.label10.Visible = false;
             // 
             // label9
             // 
@@ -293,6 +227,7 @@
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "ИО3минСР = ";
+            this.label9.Visible = false;
             // 
             // label6
             // 
@@ -315,12 +250,13 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1695, 466);
+            this.button3.Location = new System.Drawing.Point(1123, 373);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 38);
+            this.button3.Size = new System.Drawing.Size(111, 38);
             this.button3.TabIndex = 8;
             this.button3.Text = "Сохранить в CSV";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
@@ -345,11 +281,11 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.MistyRose;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(1548, 466);
+            this.button2.Location = new System.Drawing.Point(976, 373);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 38);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Рассчитать";
+            this.button2.Text = "Рассчитать коэффициенты";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -358,52 +294,53 @@
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.AxisX.Interval = 0.1D;
-            chartArea2.AxisX.ScaleView.Size = 2D;
-            chartArea2.AxisX.ScrollBar.IsPositionedInside = false;
-            chartArea2.AxisY.ScaleView.SmallScrollMinSize = 10D;
-            chartArea2.CursorX.Interval = 0.01D;
-            chartArea2.CursorY.Interval = 0.1D;
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea1.AxisX.Interval = 0.1D;
+            chartArea1.AxisX.ScaleView.Size = 2D;
+            chartArea1.AxisX.ScrollBar.IsPositionedInside = false;
+            chartArea1.AxisY.ScaleView.SmallScrollMinSize = 10D;
+            chartArea1.CursorX.Interval = 0.01D;
+            chartArea1.CursorY.Interval = 0.1D;
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart2.Legends.Add(legend1);
             this.chart2.Location = new System.Drawing.Point(0, 0);
             this.chart2.Name = "chart2";
-            series3.BorderWidth = 2;
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series1.Legend = "Legend1";
+            series1.MarkerBorderWidth = 3;
+            series1.Name = "Ритм";
+            series2.BorderColor = System.Drawing.Color.Red;
+            series2.BorderWidth = 100;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.Color = System.Drawing.Color.Transparent;
+            series2.Legend = "Legend1";
+            series2.MarkerBorderWidth = 2;
+            series2.MarkerSize = 13;
+            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series2.Name = "Точки А1";
+            series3.BorderColor = System.Drawing.Color.DodgerBlue;
             series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.Color = System.Drawing.Color.Transparent;
             series3.Legend = "Legend1";
-            series3.MarkerBorderWidth = 3;
-            series3.Name = "Ритм";
-            series4.BorderColor = System.Drawing.Color.Red;
-            series4.BorderWidth = 100;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series4.Color = System.Drawing.Color.Transparent;
-            series4.Legend = "Legend1";
-            series4.MarkerBorderWidth = 2;
-            series4.MarkerSize = 13;
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series4.Name = "Точки А1";
-            series5.BorderColor = System.Drawing.Color.DodgerBlue;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series5.Color = System.Drawing.Color.Transparent;
-            series5.Legend = "Legend1";
-            series5.MarkerBorderWidth = 2;
-            series5.MarkerSize = 13;
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series5.Name = "Точки А2";
+            series3.MarkerBorderWidth = 2;
+            series3.MarkerSize = 13;
+            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series3.Name = "Точки А2";
+            this.chart2.Series.Add(series1);
+            this.chart2.Series.Add(series2);
             this.chart2.Series.Add(series3);
-            this.chart2.Series.Add(series4);
-            this.chart2.Series.Add(series5);
             this.chart2.Size = new System.Drawing.Size(1391, 356);
             this.chart2.TabIndex = 4;
             this.chart2.Text = "chart2";
             this.chart2.AxisViewChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ViewEventArgs>(this.chart2_AxisViewChanged);
             this.chart2.AxisScrollBarClicked += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ScrollBarEventArgs>(this.scroll_press);
+            this.chart2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.myChart_MouseRightClick);
             this.chart2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.myChart_Doubleclick);
             this.chart2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.myChart_MouseDown);
             this.chart2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.myChart_MouseUp);
@@ -466,34 +403,38 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.AxisX.Interval = 10D;
-            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea3.AxisX2.Interval = 10D;
-            chartArea3.AxisX2.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea3.AxisY.Interval = 500D;
-            chartArea3.AxisY2.Interval = 500D;
-            chartArea3.BorderColor = System.Drawing.Color.Maroon;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.AxisX.Interval = 10D;
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisX2.Interval = 10D;
+            chartArea2.AxisX2.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisY.Interval = 50D;
+            chartArea2.AxisY.Maximum = 2200D;
+            chartArea2.AxisY.Minimum = 1700D;
+            chartArea2.AxisY2.Interval = 500D;
+            chartArea2.BorderColor = System.Drawing.Color.Maroon;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(6, 6);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            series6.Legend = "Legend1";
-            series6.Name = "Ритм";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            series7.Legend = "Legend1";
-            series7.Name = "Отсчет";
-            this.chart1.Series.Add(series6);
-            this.chart1.Series.Add(series7);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            series4.Legend = "Legend1";
+            series4.Name = "Ритм";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            series5.Legend = "Legend1";
+            series5.Name = "Отсчет";
+            this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
             this.chart1.Size = new System.Drawing.Size(1379, 373);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            this.chart1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseDown);
             // 
             // button1
             // 
@@ -502,7 +443,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(203, 41);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Анализировать";
+            this.button1.Text = "Продолжить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -520,7 +461,6 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -538,8 +478,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Монитор ССС";
-            this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
@@ -557,9 +496,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Timer timer2;
         private System.ComponentModel.BackgroundWorker backgroundWorker4;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;

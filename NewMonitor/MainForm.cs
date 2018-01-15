@@ -69,11 +69,11 @@ namespace NewMonitor
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (checkBox.Checked)
-            {
-                Device.chek = true;
-                Device.time = Convert.ToInt32(numeric.Value);
-            }   
+            //if (checkBox.Checked)
+            //{
+            //    Device.chek = true;
+            //    Device.time = Convert.ToInt32(numeric.Value);
+            //}   
                     
             try
             {
