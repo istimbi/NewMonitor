@@ -79,6 +79,7 @@ namespace NewMonitor
             {
                 if (Device.Port.IsOpen)
                 {
+                    Device.time = Convert.ToInt32(numeric.Value);
                     Device.L = Convert.ToDouble(textBox3.Text);
                     this.DialogResult = DialogResult.OK;
                     this.Hide();

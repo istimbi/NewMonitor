@@ -13,7 +13,7 @@ namespace NewMonitor
         public static double L = 0.0;
         public static Boolean chek = false;
         public static Boolean ismax = false;
-        public static int time = 2;
+        public static int time = 1;
         public static SerialPort Port { get; private set; }
         public static String all;
         public static String[] values = new string[3];

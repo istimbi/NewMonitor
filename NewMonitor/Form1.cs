@@ -58,6 +58,8 @@ namespace NewMonitor
         int io1sr = 0;
         public double[]  ij1 = new double[5];
         double ij1sr = 0;
+        Boolean red = true;
+        Boolean second = false;
 
 
         MainForm frm = new MainForm();
@@ -101,9 +103,15 @@ namespace NewMonitor
             try
             {
 
-                tabControl1.SelectTab(1);
-                Device.Port.Write("3");
-                backgroundWorker1.RunWorkerAsyn​c();
+
+                tabControl1.SelectTab(2);
+                end = DateTime.Now.AddMinutes(0);
+                label4.Text = TimeLeft().Minutes.ToString() + ":" + TimeLeft().Seconds.ToString();
+                timer2.Enabled = true;
+
+                //tabControl1.SelectTab(1);
+                //Device.Port.Write("3");
+                //backgroundWorker1.RunWorkerAsyn​c();
             }
             catch (Exception e)
             {
@@ -133,12 +141,17 @@ namespace NewMonitor
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) //На давление 1
         {
-            while (Convert.ToInt32(Device.values[0]) < 2200 && timerCounternew<100)
+
+            while (Convert.ToInt32(Device.values[0]) < 2200 && timerCounternew < 100)
             {
                 Device.Read();
+                if (Device.values[0] != null && Device.values[1] != null)
+                {
+
+                
                 if (Convert.ToInt32(Device.values[0]) > 500)
-                {                    
-              
+                {
+
                     Device.Read();
                     values = Device.values;
                     this.Invoke((MethodInvoker)delegate
@@ -158,11 +171,19 @@ namespace NewMonitor
                         Array.Clear(temporarry, 0, temporarry.Length);
                     }
                 }
+
+
+            }
             }
            
            if (maxval < maxvallast)
             {
                 difference = Convert.ToInt32(Device.values[0]);
+                this.Invoke((MethodInvoker)delegate
+                {
+                    button1.Enabled = true;
+                });
+
                 Device.Port.Write("1"); //Останавливаем мотор и поддерживаем давление на одном уровне
             }
         }
@@ -170,6 +191,10 @@ namespace NewMonitor
 
         private void backgroundWorker2_DoWork_1(object sender, DoWorkEventArgs e)
         {
+            this.Invoke((MethodInvoker)delegate
+            {
+                chart2.ChartAreas[0].AxisX.ScrollBar.Axis.ScaleView.Position = 0;
+            });
             Array.Resize(ref collection, 1);
             Array.Resize(ref collection_string, 1);
             if (Device.Port.IsOpen == false)
@@ -229,8 +254,8 @@ namespace NewMonitor
 
                                 this.Invoke((MethodInvoker)delegate
                                 {
-                                    chart2.ChartAreas[0].AxisY.Maximum = collection.Max() + 20;
-                                    chart2.ChartAreas[0].AxisY.Minimum = collection.Min() - 20;
+                                    chart2.ChartAreas[0].AxisY.Maximum = collection.Max() + 50;
+                                    chart2.ChartAreas[0].AxisY.Minimum = collection.Min() - 50;
                                 });
 
                             }
@@ -245,7 +270,7 @@ namespace NewMonitor
                                     });
                                 }
 
-                                if (Convert.ToInt32(chart2.ChartAreas[0].AxisY.Minimum) - 20 > collection.Min()) //Меняем масштаб
+                                if (Convert.ToInt32(chart2.ChartAreas[0].AxisY.Minimum) + 20 > collection.Min()) //Меняем масштаб
                                 {
                                     this.Invoke((MethodInvoker)delegate
                                     {
@@ -301,8 +326,11 @@ namespace NewMonitor
 
                     this.Invoke((MethodInvoker)delegate
                     {
-                        int max = collection.Max();
-                        int maxvalue = Array.IndexOf(collection, max);
+
+                        button2.Enabled = true;
+                        button2.BackColor = Color.LightGreen;
+                      //  int max = collection.Max();
+                        //int maxvalue = Array.IndexOf(collection, max);
                         //if (maxvalue < collection.Length/2 && maxvalue > 5 )
                         //{
                         //    chart2.Series[1].Points.AddXY(Convert.ToDouble(maxvalue + 1)/100, max + 1);
@@ -331,7 +359,6 @@ namespace NewMonitor
                         //}
                         
                     });
-                    button2.BackColor = Color.LightGreen;
                 }
             }
         } //На плетизмограмму                
@@ -516,7 +543,7 @@ namespace NewMonitor
             label16.Text = chart1.Series[1].Points[chart1.Series[1].Points.Count-1].XValue.ToString();
            
             tabControl1.SelectTab(2);
-            end = DateTime.Now.AddMinutes(1);
+            end = DateTime.Now.AddMinutes(Device.time);
             label4.Text = TimeLeft().Minutes.ToString() + ":" + TimeLeft().Seconds.ToString();
             timer2.Start();            
         }
@@ -617,9 +644,9 @@ namespace NewMonitor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (io[0] != 0 && label11.Text != "")
+            if (second)
             {
-                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[0].XValue)).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[0].XValue*100)).ToArray();
                 if (collection1.Length - 50 > 0)
                 {
                     collection2 = collection1.Skip(collection1.Length - 20).ToArray();
@@ -631,27 +658,27 @@ namespace NewMonitor
                 double dno = collection2.Min();
 
                 io1[0] = Convert.ToInt32((chart2.Series[2].Points[0].YValues[0] - dno) / (chart2.Series[1].Points[0].YValues[0] - dno) * 100);
-                    collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[1].XValue)).ToArray();
-                    collection2 = collection1.Skip(collection1.Length - 20).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[1].XValue*100)).ToArray();
+                collection2 = collection1.Skip(collection1.Length - 20).ToArray();
                 dno = collection2.Min();
                 io1[1] = Convert.ToInt32((chart2.Series[2].Points[1].YValues[0] - dno) / (chart2.Series[1].Points[1].YValues[0] - dno) * 100);
-                    collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[2].XValue)).ToArray();
-                    collection2 = collection1.Skip(collection1.Length - 20).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[2].XValue*100)).ToArray();
+                collection2 = collection1.Skip(collection1.Length - 20).ToArray();
                 dno = collection2.Min();
                 io1[2] = Convert.ToInt32((chart2.Series[2].Points[2].YValues[0] - dno) / (chart2.Series[1].Points[2].YValues[0] - dno) * 100);
-                    collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[3].XValue)).ToArray();
-                    collection2 = collection1.Skip(collection1.Length - 20).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[3].XValue*100)).ToArray();
+                collection2 = collection1.Skip(collection1.Length - 20).ToArray();
                 dno = collection2.Min();
                 io1[3] = Convert.ToInt32((chart2.Series[2].Points[3].YValues[0] - dno) / (chart2.Series[1].Points[3].YValues[0] - dno) * 100);
-                    collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[4].XValue)).ToArray();
-                    collection2 = collection1.Skip(collection1.Length - 20).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[4].XValue*100)).ToArray();
+                collection2 = collection1.Skip(collection1.Length - 20).ToArray();
                 dno = collection2.Min();
                 io1[4] = Convert.ToInt32((chart2.Series[2].Points[4].YValues[0] - dno) / (chart2.Series[1].Points[4].YValues[0] - dno) * 100);
-                ij1[0] = Device.L / ((chart2.Series[2].Points[0].XValue - chart2.Series[1].Points[0].XValue)*20)*10;
-                ij1[1] = Device.L / ((chart2.Series[2].Points[1].XValue - chart2.Series[1].Points[1].XValue)*20)*10;
-                ij1[2] = Device.L / ((chart2.Series[2].Points[2].XValue - chart2.Series[1].Points[2].XValue)*20)*10;
-                ij1[3] = Device.L / ((chart2.Series[2].Points[3].XValue - chart2.Series[1].Points[3].XValue)*20)*10;
-                ij1[4] = Device.L / ((chart2.Series[2].Points[4].XValue - chart2.Series[1].Points[4].XValue)*20)*10;
+                ij1[0] = Device.L / ((chart2.Series[2].Points[0].XValue*100 - chart2.Series[1].Points[0].XValue*100) * 20) * 10;
+                ij1[1] = Device.L / ((chart2.Series[2].Points[1].XValue*100 - chart2.Series[1].Points[1].XValue*100) * 20) * 10;
+                ij1[2] = Device.L / ((chart2.Series[2].Points[2].XValue*100 - chart2.Series[1].Points[2].XValue*100) * 20) * 10;
+                ij1[3] = Device.L / ((chart2.Series[2].Points[3].XValue*100 - chart2.Series[1].Points[3].XValue*100) * 20) * 10;
+                ij1[4] = Device.L / ((chart2.Series[2].Points[4].XValue*100 - chart2.Series[1].Points[4].XValue*100) * 20) * 10;
                 io1sr = Convert.ToInt32(io1.Average());
                 label13.Text = io1sr.ToString() + "%";
                 ij1sr = Convert.ToInt32(ij1.Average());
@@ -659,13 +686,13 @@ namespace NewMonitor
                 label12.Text = ij1sr.ToString();
                 double test1 = iosr - io1sr;
                 test1 = test1 / iosr * 100;
-                label15.Text = Convert.ToString(Math.Round(test1,2));
+                label15.Text = Convert.ToString(Math.Round(test1, 2));
                 button4.Visible = false;
             }
 
             else
             {
-                 collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[0].XValue)).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[0].XValue*100)).ToArray();
 
                 if (collection1.Length - 50 > 0 )
                 {
@@ -679,28 +706,28 @@ namespace NewMonitor
 
                  double dno = collection2.Min();
             io[0] = Convert.ToInt32((chart2.Series[2].Points[0].YValues[0] - dno) / (chart2.Series[1].Points[0].YValues[0] - dno) * 100);
-                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[1].XValue)).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[1].XValue*100)).ToArray();
                 collection2 = collection1.Skip(collection1.Length - 20).ToArray();
                 dno = collection2.Min();
             io[1] = Convert.ToInt32((chart2.Series[2].Points[1].YValues[0] - dno) /( chart2.Series[1].Points[1].YValues[0] - dno) * 100);
-                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[2].XValue)).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[2].XValue*100)).ToArray();
                 collection2 = collection1.Skip(collection1.Length - 20).ToArray();
                 dno = collection2.Min();
             io[2] = Convert.ToInt32((chart2.Series[2].Points[2].YValues[0] - dno) /( chart2.Series[1].Points[2].YValues[0] - dno) * 100);
-                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[3].XValue)).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[3].XValue*100)).ToArray();
                 collection2 = collection1.Skip(collection1.Length - 20).ToArray();
                 dno = collection2.Min();
             io[3] = Convert.ToInt32((chart2.Series[2].Points[3].YValues[0] - dno) / (chart2.Series[1].Points[3].YValues[0] - dno) * 100);
-                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[4].XValue)).ToArray();
+                collection1 = collection.Take(Convert.ToInt32(chart2.Series[1].Points[4].XValue*100)).ToArray();
                 collection2 = collection1.Skip(collection1.Length - 20).ToArray();
                 dno = collection2.Min();
             io[4] = Convert.ToInt32((chart2.Series[2].Points[4].YValues[0] - dno) /( chart2.Series[1].Points[4].YValues[0] - dno)*100);
 
-            ij[0] = Device.L / ((chart2.Series[2].Points[0].XValue - chart2.Series[1].Points[0].XValue) * 20)*10;
-            ij[1] = Device.L / ((chart2.Series[2].Points[1].XValue - chart2.Series[1].Points[1].XValue) * 20)*10;
-            ij[2] = Device.L / ((chart2.Series[2].Points[2].XValue - chart2.Series[1].Points[2].XValue) * 20)*10;
-            ij[3] = Device.L / ((chart2.Series[2].Points[3].XValue - chart2.Series[1].Points[3].XValue) * 20)*10;
-            ij[4] = Device.L / ((chart2.Series[2].Points[4].XValue - chart2.Series[1].Points[4].XValue) * 20)*10;
+            ij[0] = Device.L / ((chart2.Series[2].Points[0].XValue*100 - chart2.Series[1].Points[0].XValue*100)*20)*10;
+            ij[1] = Device.L / ((chart2.Series[2].Points[1].XValue*100 - chart2.Series[1].Points[1].XValue*100)*20)*10;
+            ij[2] = Device.L / ((chart2.Series[2].Points[2].XValue*100 - chart2.Series[1].Points[2].XValue*100)*20)*10;
+            ij[3] = Device.L / ((chart2.Series[2].Points[3].XValue*100 - chart2.Series[1].Points[3].XValue*100)*20)*10;
+            ij[4] = Device.L / ((chart2.Series[2].Points[4].XValue*100 - chart2.Series[1].Points[4].XValue*100)*20)*10;
             iosr = Convert.ToInt32(io.Average());
             label11.Text = iosr.ToString() + "%";
             ijsr = Convert.ToDouble(ij.Average());
@@ -760,13 +787,27 @@ namespace NewMonitor
             var prop = seriesHit.Object as DataPoint;
             if (e.Button == MouseButtons.Right && seriesHit.Series != null && seriesHit.Series.Name == "Ритм")
             {
-                if (chart2.Series[1].Points.Count<5)
+                
+                if (chart2.Series[1].Points.Count< 6 && chart2.Series[2].Points.Count < 5)
                 {
-                    chart2.Series[1].Points.AddXY(prop.XValue, prop.YValues[0]);
+                    if (red)
+                    {
+                        red = false;
+                        chart2.Series[1].Points.AddXY(prop.XValue, prop.YValues[0]);
+                    }
+                    else
+                    {
+                        red = true;
+                        chart2.Series[2].Points.AddXY(prop.XValue, prop.YValues[0]);
+                        button2.Enabled = true;
+                    }
+                   
                 }
-                else if (chart2.Series[2].Points.Count < 5)
+                else
                 {
-                    chart2.Series[2].Points.AddXY(prop.XValue, prop.YValues[0]);
+                    chart2.Series[1].Points.Clear();
+                    chart2.Series[2].Points.Clear();
+                    button2.Enabled = false;
                 }
                 
             }
@@ -849,16 +890,22 @@ namespace NewMonitor
             if (movefirst == true && seriesHit.Series != null && seriesHit.Series.Name == "Ритм")
             {
                 var prop = seriesHit.Object as DataPoint;
-                chart2.Series[1].Points.RemoveAt(index);
-                chart2.Series[1].Points.AddXY(prop.XValue, prop.YValues[0]);
+                //chart2.Series[1].Points.RemoveAt(index);
+                //chart2.Series[1].Points.AddXY(prop.XValue, prop.YValues[0]);
+                chart2.Series[1].Points[index].SetValueXY(prop.XValue, prop.YValues[0]);
+                chart2.Update();    
+                chart2.Refresh();
                 movefirst = false;
 
             }
             if (movesecond == true && seriesHit.Series != null && seriesHit.Series.Name == "Ритм")
             {
                 var prop = seriesHit.Object as DataPoint;
-                chart2.Series[2].Points.RemoveAt(index);
-                chart2.Series[2].Points.AddXY(prop.XValue, prop.YValues[0]);
+                //chart2.Series[2].Points.RemoveAt(index);
+                //chart2.Series[2].Points.AddXY(prop.XValue, prop.YValues[0]);
+                chart2.Series[2].Points[index].SetValueXY(prop.XValue, prop.YValues[0]);
+                chart2.Update();
+                chart2.Refresh();
                 movesecond = false;
 
             }
@@ -903,13 +950,17 @@ namespace NewMonitor
         {
             tabControl1.SelectTab(1);
             Device.Port.Write("3"); //Отправляем команду старта
-            Thread.Sleep(500);
-            timer1.Enabled = true;
+            //Thread.Sleep(500);
+            //timer1.Enabled = true;
+            timerCounter = 0;
+            button2.Enabled = false;
+            backgroundWorker1.RunWorkerAsyn​c();
             chart2.Series[0].Points.Clear();
             chart2.Series[1].Points.Clear();
             chart2.Series[2].Points.Clear();
             Array.Resize(ref collection, 1);
             Array.Resize(ref collection_string, 1);
+            second = true;
 
         }
 

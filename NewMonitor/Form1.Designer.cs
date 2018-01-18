@@ -123,7 +123,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1391, 432);
+            this.tabPage2.Size = new System.Drawing.Size(1191, 432);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Плетизмограмма";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -131,27 +131,25 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1286, 154);
+            this.label12.Location = new System.Drawing.Point(1120, 157);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(13, 13);
             this.label12.TabIndex = 24;
             this.label12.Text = "0";
-            this.label12.Visible = false;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1213, 154);
+            this.label14.Location = new System.Drawing.Point(1045, 157);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 23;
             this.label14.Text = "ИЖ3минСР = ";
-            this.label14.Visible = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1286, 114);
+            this.label7.Location = new System.Drawing.Point(1120, 117);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(13, 13);
             this.label7.TabIndex = 22;
@@ -160,7 +158,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1213, 114);
+            this.label8.Location = new System.Drawing.Point(1045, 117);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 21;
@@ -171,7 +169,7 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.LightGreen;
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(1401, 467);
+            this.button4.Location = new System.Drawing.Point(1030, 373);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(141, 38);
             this.button4.TabIndex = 20;
@@ -183,27 +181,25 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(1254, 173);
+            this.label15.Location = new System.Drawing.Point(1088, 176);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(13, 13);
             this.label15.TabIndex = 19;
             this.label15.Text = "0";
-            this.label15.Visible = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1286, 141);
+            this.label13.Location = new System.Drawing.Point(1120, 144);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(13, 13);
             this.label13.TabIndex = 17;
             this.label13.Text = "0";
-            this.label13.Visible = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1274, 101);
+            this.label11.Location = new System.Drawing.Point(1108, 104);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(13, 13);
             this.label11.TabIndex = 15;
@@ -212,27 +208,25 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1213, 173);
+            this.label10.Location = new System.Drawing.Point(1045, 176);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 13);
             this.label10.TabIndex = 14;
             this.label10.Text = "ПФЭ = ";
-            this.label10.Visible = false;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1213, 141);
+            this.label9.Location = new System.Drawing.Point(1045, 144);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "ИО3минСР = ";
-            this.label9.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1213, 101);
+            this.label6.Location = new System.Drawing.Point(1045, 104);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 10;
@@ -241,7 +235,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1213, 88);
+            this.label5.Location = new System.Drawing.Point(1045, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 9;
@@ -250,13 +244,12 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(1123, 373);
+            this.button3.Location = new System.Drawing.Point(766, 373);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 38);
             this.button3.TabIndex = 8;
             this.button3.Text = "Сохранить в CSV";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
@@ -280,8 +273,9 @@
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.MistyRose;
+            this.button2.Enabled = false;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(976, 373);
+            this.button2.Location = new System.Drawing.Point(883, 373);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 38);
             this.button2.TabIndex = 5;
@@ -306,7 +300,7 @@
             this.chart2.Legends.Add(legend1);
             this.chart2.Location = new System.Drawing.Point(0, 0);
             this.chart2.Name = "chart2";
-            series1.BorderWidth = 2;
+            series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -335,7 +329,7 @@
             this.chart2.Series.Add(series1);
             this.chart2.Series.Add(series2);
             this.chart2.Series.Add(series3);
-            this.chart2.Size = new System.Drawing.Size(1391, 356);
+            this.chart2.Size = new System.Drawing.Size(1191, 367);
             this.chart2.TabIndex = 4;
             this.chart2.Text = "chart2";
             this.chart2.AxisViewChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ViewEventArgs>(this.chart2_AxisViewChanged);
@@ -357,7 +351,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1391, 432);
+            this.tabPage1.Size = new System.Drawing.Size(1191, 432);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Давление";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -365,7 +359,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(1311, 93);
+            this.label17.Location = new System.Drawing.Point(1135, 105);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(19, 13);
             this.label17.TabIndex = 6;
@@ -374,7 +368,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1313, 121);
+            this.label16.Location = new System.Drawing.Point(1135, 127);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(25, 13);
             this.label16.TabIndex = 5;
@@ -383,7 +377,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1214, 115);
+            this.label2.Location = new System.Drawing.Point(1038, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 4;
@@ -392,7 +386,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1214, 93);
+            this.label1.Location = new System.Drawing.Point(1038, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 3;
@@ -418,11 +412,13 @@
             this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(6, 6);
             this.chart1.Name = "chart1";
+            series4.BorderWidth = 3;
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             series4.Legend = "Legend1";
             series4.Name = "Ритм";
+            series5.BorderWidth = 4;
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -430,7 +426,7 @@
             series5.Name = "Отсчет";
             this.chart1.Series.Add(series4);
             this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(1379, 373);
+            this.chart1.Size = new System.Drawing.Size(1185, 373);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -439,7 +435,8 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(1102, 385);
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(929, 385);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(203, 41);
             this.button1.TabIndex = 0;
@@ -451,7 +448,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1391, 432);
+            this.tabPage3.Size = new System.Drawing.Size(1191, 432);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Начало работы";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -464,7 +461,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1399, 458);
+            this.tabControl1.Size = new System.Drawing.Size(1199, 458);
             this.tabControl1.TabIndex = 3;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
@@ -473,9 +470,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1423, 482);
+            this.ClientSize = new System.Drawing.Size(1223, 482);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1239, 520);
+            this.MinimumSize = new System.Drawing.Size(1239, 520);
             this.Name = "Form1";
             this.Text = "Монитор ССС";
             this.Load += new System.EventHandler(this.Form1_Load);
